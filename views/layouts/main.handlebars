@@ -19,15 +19,11 @@
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
+    <main>
       {{{ body }}}
     </main>
     <footer>
-      
     </footer>
-  </div>
-
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
