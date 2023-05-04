@@ -1,15 +1,33 @@
 const { Model, DataTypes } = require('sequelize');
+<<<<<<< HEAD
+=======
 const User = require('./User');
+>>>>>>> main
 const sequelize = require('../config/connection');
 
 class Recipe extends Model { };
 
 Recipe.init(
     {
+<<<<<<< HEAD
+        //field/column definitions
+=======
+>>>>>>> main
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+<<<<<<< HEAD
+            autoIncrement: true 
+        }
+    },
+    {
+        //configuration / options
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'Recipe'
+=======
             autoIncrement: true
         },
         name: {
@@ -37,6 +55,7 @@ Recipe.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'recipe'
+>>>>>>> main
     }
 );
 
