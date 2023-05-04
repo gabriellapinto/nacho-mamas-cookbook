@@ -5,11 +5,30 @@ class User extends Model { };
 
 User.init(
     {
+<<<<<<< HEAD
+        //field/column definitions
+=======
      
+>>>>>>> main
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+<<<<<<< HEAD
+            autoIncrement: true 
+        },
+        name: {
+            type: DataType.STRING,
+            allowNull: true
+        },
+        email: {
+            type: DataTypes.STING,
+            allowNull: false
+        }
+    },
+    {
+        //configuration / options
+=======
             autoIncrement: true
         },
         name: {
@@ -33,6 +52,7 @@ User.init(
         }
     },
     {
+>>>>>>> main
         sequelize,
         freezeTableName: true,
         underscored: true,
