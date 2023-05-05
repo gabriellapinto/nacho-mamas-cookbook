@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Recipe, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Get homepage
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get certain recipe based off of id
-router.get('/recipe/:id', withAuth, async (req, res) => {
+router.get('/recipe/:id', async (req, res) => {
     const recipeId = req.params.id;
     const recipeData = await Recipe.findByPk(recipeId, {
         include: [
