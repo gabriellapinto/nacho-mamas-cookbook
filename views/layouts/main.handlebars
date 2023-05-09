@@ -5,36 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nacho Mama's Cookbook</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
+  <!-- Conditionally render login or logout links -->
+  {{#if logged_in}}
+  <a href="/profile">profile</a> |
+  <button class="no-button" id="logout">logout</button>
+  {{else}}
+  <a href="/login">login</a>
+  {{/if}}
+  </nav>
+  </header>
+  <main class="container container-fluid mt-5">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
+  <footer>
+
+  </footer>
   </div>
 
   <!-- Render script for logged in users only -->
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+    integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
-  integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
-  crossorigin="anonymous"></script>
   {{/if}}
 </body>
 
