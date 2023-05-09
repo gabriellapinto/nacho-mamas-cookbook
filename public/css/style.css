@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 body {
-    background-image: url();
+    background-image: url(../../views/images/bluevintagepic.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

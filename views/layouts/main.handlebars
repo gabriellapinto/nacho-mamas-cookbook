@@ -5,11 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nacho Mama's Cookbook</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../../public/css/style.css">
 
 </head>
 
-<body>
+<body class = "bg-gray-100">
+  <header class="bg-orange-500 text-white py-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="font-bold text">Nacho Mamas Cookbook</a>
+    </div>
+  </header>
   <!-- Conditionally render login or logout links -->
   {{#if logged_in}}
   <a href="/profile">profile</a> |
