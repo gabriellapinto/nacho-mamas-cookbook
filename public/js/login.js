@@ -14,7 +14,7 @@ loginForm.on('submit', async (event) => {
         }
 
         //send the login data to our login route
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/users', {
             method: "POST",
             body: JSON.stringify(data),
             headers: {

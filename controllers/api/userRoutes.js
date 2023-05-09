@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 //POST /api/users/login
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     console.log('req.body:');
     console.log(req.body);
     try {
