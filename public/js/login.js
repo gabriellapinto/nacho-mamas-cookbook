@@ -14,7 +14,7 @@ loginForm.on('submit', async (event) => {
         }
 
         //send the login data to our login route
-        const response = await fetch('/api/users', {
+        const response = await fetch('/api/users/login', {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -27,7 +27,7 @@ loginForm.on('submit', async (event) => {
         console.log(responseData);
         //if successful login, redirect to the profile page
         if (responseData.success) {
-            window.location.replace('/profile');
+            window.location.replace('/recipes');
         }
 
     } catch (e) {
