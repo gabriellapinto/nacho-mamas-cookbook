@@ -19,6 +19,13 @@ router.get('/', async (req, res) => {
     });
 });
 
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        return res.redirect('/profile');
+    }
+    res.render('login');
+});
+
 // Get certain recipe based off of id
 router.get('/recipes', async (req, res) => {
     const recipeId = req.params.id;
