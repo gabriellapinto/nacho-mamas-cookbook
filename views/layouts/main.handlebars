@@ -5,8 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nacho Mama's Cookbook</title>
-  <link rel="stylesheet" href="../../public/css/style.css">
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+  <script
+  src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+  integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class = "bg-gray-100">
@@ -38,8 +48,51 @@
   src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
   integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <nav class="flex items-center justify-between flex-wrap bg-orange-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <a href="/" class="font-semibold text-xl tracking-tight hover:text-orange-700">Nacho Mama's Cookbook</a>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-orange-700 mr-4">
+          About
+        </a>
+        <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-orange-700 mr-4">
+          Contact
+        </a>
+      </div>
+      <div>
+        {{#if logged_in}}
+        <a href="/profile" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-orange-700 mr-4">
+          Profile
+        </a>
+        <button class="no-button" id="logout">Logout</button>
+        {{else}}
+        <a href="/login" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-orange-700 mr-4">
+          Login
+        </a>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+  <main class="container container-fluid mt-5">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
+  <footer>
+
+  </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+    integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script type="text/javascript" src="/js/logout.js"></script>
   {{/if}}
 </body>
 

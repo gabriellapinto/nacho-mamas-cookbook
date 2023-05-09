@@ -37,4 +37,11 @@ router.get('/recipes', async (req, res) => {
     });
 });
 
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        return res.redirect('/profile');
+    }
+    res.render('login');
+});
+
 module.exports = router;
