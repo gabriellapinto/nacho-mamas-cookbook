@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get certain recipe based off of id
-router.get('/recipe/:id', async (req, res) => {
+router.get('/recipes', async (req, res) => {
     const recipeId = req.params.id;
     const recipeData = await Recipe.findByPk(recipeId, {
         include: [
@@ -30,9 +30,9 @@ router.get('/recipe/:id', async (req, res) => {
             },
         ],
     });
-    const recipe = recipeData.toJSON();
-    res.render('recipe', {
-        ...recipe,
+    // const recipe = recipeData.toJSON();
+    res.render('recipes', {
+        recipeData,
         logged_in: req.session.logged_in
     });
 });

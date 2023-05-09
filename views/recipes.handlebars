@@ -1,1 +1,26 @@
 <h1>this is the recipes page</h1>
+<!--overall container-->
+<div class="container-fluid">
+    <!--container for both sides of page-->
+    <div class="row">
+        <!--this is the recipes list that the user made-->
+        <div class="col-4 list-container">
+            <h3>Your Current Recipes:</h3>
+            <div class="card">
+                <ul class="list-group"></ul>
+            </div>
+        </div>
+        <!-- this is the open recipe that the user is editing-->
+        <div class="col-8">
+          <input
+            class="recipe-name"
+            placeholder="Recipe Name"
+            maxlength="30"
+            type="text"
+          />
+          <textarea class="recipe-description" placeholder="Short Description"></textarea>
+          <textarea class="recipe-ingredients" placeholder="Enter Ingredients"></textarea>
+          <textarea class="recipe-steps" placeholder="Recipe Instructions"></textarea>
+        </div>
+    </div>
+</div>
