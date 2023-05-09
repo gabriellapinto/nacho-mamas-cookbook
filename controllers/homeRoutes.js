@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const { Recipe, User } = require('../models');
+const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
+const path = require('path');
 const withAuth = require('../utils/auth');
 
 // Get homepage
@@ -37,16 +40,49 @@ router.get('/recipes', async (req, res) => {
             },
         ],
     });
-    // const recipe = recipeData.toJSON();
     res.render('recipes', {
         recipeData,
         logged_in: req.session.logged_in
     });
 });
 
+router.post('/recipes', (req, res) => {
+    const dbJson = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/schema.sql'), 'utf8'));
+
+    // New recipe object
+    const newRecipe = {
+        id: uuidv4(),
+        name: req.body.name,
+        description: req.body.description,
+        ingredients: req.body.ingredients,
+        instructions: req.body.instructions,
+    };
+
+    // Pushes the data into the new recipe object and shows it to the page
+    dbJson.push(newRecipe);
+    fs.writeFileSync(path.join(__dirname, '../db/schema.sql'), JSON.stringify(dbJson));
+    res.json(dbJson);
+});
+
+router.delete('/recipes/:id', (req, res) => {
+    let newData = fs.readFileSync('db/schema.sql', 'utf8');
+  
+    const dataJson =  JSON.parse(newData);
+  
+    const newRecipe = dataJson.filter((recipe) => { 
+      return recipe.id !== req.params.id;
+    });
+  
+    // Save that array to the filesystem
+    fs.writeFileSync('db/schema.sql',JSON.stringify(newRecipe));
+  
+    // Respond to the DELETE request
+    res.json('Successfully deleted recipe!');
+  });
+
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        return res.redirect('/profile');
+        return res.redirect('/recipes');
     }
     res.render('login');
 });

@@ -3,9 +3,9 @@
     style="background-image: url('./css/table.jpg')">
   
     <!--container for both sides of page-->
-    <div class="flex bg-white w-3/4 place-content-around rounded-lg p-4">
+    <div class="flex bg-white w-3/4 place-content-around rounded-lg p-4 drop-shadow-md">
         <!--this is the recipes list that the user made-->
-        <div class="flex row-auto list-container w-1/5 bg-yellow-200 border-r-2 border-gray">
+        <div class="flex row-auto list-container w-1/5 bg-white border-r-2 border-gray">
             <div class="">
                 <ul class="list-group">{{Recipe}}</ul>
             </div>
@@ -20,8 +20,8 @@
             </div>
             <!-- icons div -->
             <div class="icons m-7 text-xl cursor-pointer">
-              <i class="fas fa-save text-dark save-note py-5"></i>
-              <i class="fas fa-plus text-dark new-note py-5"></i>
+              <i class="fas fa-save text-dark save-recipe py-5" alt="Save Recipe"></i>
+              <i class="fas fa-plus text-dark new-recipe py-5" alt="Add Recipe"></i>
             </div>
           </div>
         </div>
