@@ -1,23 +1,36 @@
-<body class="h-screen">
+<body class="h-screen bg-cover bg-no-repeat place-content-center" style="background-image: url('./css/veggies-bg.jpg');">
     <div class="flex flex-col justify-center items-center h-full">
         <div class="flex justify-between items-center w-full">
-            <div class="w-1/3">
+
+            <!-- Left container -->
+            <div class="w-1/3 h-screen rounded mr-5" style="background-color: rgba(128, 128, 128, 0.35);">
                 <h2 class="text-center text-xl font-semibold mb-2">About</h2>
-                <p class="text-left">This is a sentence about the text on the left side. Since it is on the left, it is
-                    not on the right side</p>
+                <p class="text-center">Welcome to our virtual cookbook website, where you can discover, create, and share
+                    your favorite recipes with ease! Our platform allows you to enter your own recipes into our
+                    database, which stores them safely and securely on your personal profile.
+
+                    Whether you're an experienced cook or just starting out in the kitchen, our user-friendly interface
+                    makes it easy to create and organize your recipes.
+                    So why wait? Join our community today and start creating your own virtual cookbook! The
+                    possibilities are endless!</p>
             </div>
-            <div class="w-2/3">
-                <h1 class="text-4xl font-bold mb-8">Welcome to your virtual cookbook!</h1>
+
+            <!-- Center Button -->
+            <div class="w-2/3 rounded">
+                <h1 class="text-6xl text-center font-bold mb-20">
+                    Welcome to your virtual cookbook!</h1>
                 <div class="flex justify-center">
-                    <a href="/recipes"
+                    <a href="/login"
                         class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Click
                         here
                         to start!</a>
                 </div>
             </div>
-            <div class="w-1/3">
-                <h2 class="text-center text-xl font-semibold mb-2">Right Container</h2>
-                <p class="text-right">Right side text is considered on right side since it is not on the left. </p>
+
+            <!-- Right container -->
+            <div class="w-1/3 h-screen rounded ml-5" style="background-color: rgba(128, 128, 128, 0.35);">
+                <h2 class="text-center text-xl font-semibold mb-2">Share Your Recipe</h2>
+                <p class="text-center">Submit your recipes and you could see yours on the home page for the recipes of the month!</p>
             </div>
         </div>
     </div>
