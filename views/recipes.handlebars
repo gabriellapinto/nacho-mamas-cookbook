@@ -1,26 +1,29 @@
-<h1>this is the recipes page</h1>
 <!--overall container-->
-<div class="container-fluid">
+<section class="flex container-fluid bg-pink-300 w-screen h-screen place-content-center p-4 relative overflow-hidden bg-cover bg-no-repeat p-12" 
+    style="background-image: url('./css/table.jpg')">
+  
     <!--container for both sides of page-->
-    <div class="row">
+    <div class="flex bg-white w-3/4 place-content-around rounded-lg p-4">
         <!--this is the recipes list that the user made-->
-        <div class="col-4 list-container">
-            <h3>Your Current Recipes:</h3>
-            <div class="card">
-                <ul class="list-group"></ul>
+        <div class="flex row-auto list-container w-1/5 bg-yellow-200 border-r-2 border-gray">
+            <div class="">
+                <ul class="list-group">{{Recipe}}</ul>
             </div>
         </div>
         <!-- this is the open recipe that the user is editing-->
-        <div class="col-8">
-          <input
-            class="recipe-name"
-            placeholder="Recipe Name"
-            maxlength="30"
-            type="text"
-          />
-          <textarea class="recipe-description" placeholder="Short Description"></textarea>
-          <textarea class="recipe-ingredients" placeholder="Enter Ingredients"></textarea>
-          <textarea class="recipe-steps" placeholder="Recipe Instructions"></textarea>
+        <div class="flex bg-white row-auto w-4/5 rounded-lg">
+            <div class="w-full p-8 px-9 m-5 place-content-between">
+              <textarea class="recipe-name text-4xl resize-none h-20 w-full outline-none" placeholder="Recipe Name"></textarea>
+              <textarea class="recipe-description text-2xl resize-none w-full outline-none h-20" placeholder="Short Description"></textarea>
+              <textarea class="recipe-ingredients text-2xl resize-none w-full outline-none h-20" placeholder="Enter Ingredients"></textarea>
+              <textarea class="recipe-steps text-1xl resize-none w-full outline-none h-3/4" placeholder="Recipe Instructions"></textarea>
+            </div>
+            <!-- icons div -->
+            <div class="icons m-7 text-xl cursor-pointer">
+              <i class="fas fa-save text-dark save-note py-5"></i>
+              <i class="fas fa-plus text-dark new-note py-5"></i>
+            </div>
+          </div>
         </div>
     </div>
-</div>
+</section>
