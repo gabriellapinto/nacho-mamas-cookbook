@@ -1,27 +1,27 @@
 <!--overall container-->
-<section class="flex container-fluid bg-pink-300 w-screen h-screen place-content-center p-4 relative overflow-hidden bg-cover bg-no-repeat p-12" 
+<section class="flex container-fluid w-screen h-screen place-content-center p-4 relative overflow-hidden bg-cover bg-no-repeat p-12" 
     style="background-image: url('./css/vintagebckrnd.jpg')">
   
     <!--container for both sides of page-->
-    <div class="flex bg-white w-3/4 place-content-around rounded-lg p-4">
+    <div class="flex bg-white w-3/4 place-content-around rounded-lg p-4 drop-shadow-md">
         <!--this is the recipes list that the user made-->
-        <div class="flex row-auto list-container w-1/5 bg-amber-100 border-r-2 border-gray">
+        <div class="flex row-auto list-container w-1/5 bg-white border-r-2 border-gray">
             <div class="">
                 <ul class="list-group">{{Recipe}}</ul>
             </div>
         </div>
         <!-- this is the open recipe that the user is editing-->
-        <div class="flex bg-amber-50 row-auto w-4/5 rounded-lg">
+        <div class="flex row-auto w-4/5 rounded-lg" style="background-image:url(./css/vintagepaper.jpg)">
             <div class="w-full p-8 px-9 m-5 place-content-between">
-              <textarea class="recipe-name text-4xl resize-none h-20 w-full outline-none" placeholder="Recipe Name"></textarea>
-              <textarea class="recipe-description text-2xl resize-none w-full outline-none h-20" placeholder="Short Description"></textarea>
-              <textarea class="recipe-ingredients text-2xl resize-none w-full outline-none h-20" placeholder="Enter Ingredients"></textarea>
-              <textarea class="recipe-steps text-1xl resize-none w-full outline-none h-3/4" placeholder="Recipe Instructions"></textarea>
+              <textarea class="recipe-name text-4xl resize-none h-12 w-full outline-none bg-amber-50 text-amber-950 placeholder-amber-950" placeholder="Recipe Name"></textarea>
+              <textarea class="recipe-description text-2xl resize-none w-full outline-none h-20 bg-amber-50 text-amber-950 placeholder-amber-950" placeholder="Short Description"></textarea>
+              <textarea class="recipe-ingredients text-2xl resize-none w-full outline-none h-20 bg-amber-50 text-amber-950 placeholder-amber-950" placeholder="Enter Ingredients"></textarea>
+              <textarea class="recipe-steps text-1xl resize-none w-full outline-none h-52 bg-amber-50 text-amber-950 placeholder-amber-950" placeholder="Recipe Instructions"></textarea>
             </div>
             <!-- icons div -->
             <div class="icons m-7 text-xl cursor-pointer">
-              <i class="fas fa-save text-dark save-note py-5"></i>
-              <i class="fas fa-plus text-dark new-note py-5"></i>
+              <i class="fas fa-save text-dark save-recipe py-5" alt="Save Recipe"></i>
+              <i class="fas fa-plus text-dark new-recipe py-5" alt="Add Recipe"></i>
             </div>
           </div>
         </div>
