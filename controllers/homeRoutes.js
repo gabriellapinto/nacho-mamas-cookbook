@@ -30,7 +30,7 @@ router.get('/login', (req, res) => {
 });
 
 // Get certain recipe based off of id
-router.get('/recipes', async (req, res) => {
+router.get('/recipes', withAuth, async (req, res) => {
     const recipeId = req.params.id;
     const recipeData = await Recipe.findByPk(recipeId, {
         include: [
