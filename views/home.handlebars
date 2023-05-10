@@ -7,10 +7,16 @@
             <h1 class="text-6xl text-center font-bold mb-20">
                 Welcome to your virtual cookbook!</h1>
             <div class="flex justify-center">
+                {{#if logged_in}}
+                <a href="/recipes"
+                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Go
+                    To My Recipes!</a>
+                {{else}}
                 <a href="/login"
                     class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Click
                     here
                     to get started!</a>
+                {{/if}}
             </div>
         </div>
 
