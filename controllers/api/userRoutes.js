@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const bcrypt = require('bcrypt');
 
 //POST /api/users/login
 router.post('/login', async (req, res) => {
@@ -16,12 +17,14 @@ router.post('/login', async (req, res) => {
         if (userData) {
             //check password
             //TODO: use bcrypt in my user model and bcrypt.compare()
-            if (userData.password === req.body.password) {
+            const validPassword = await bcrypt.compare(req.body.password, userData.password) 
+            console.log(validPassword);
+                if (validPassword) {
 
                 req.session.save(() => {
                     req.session.user_id = userData.id;
                     req.session.logged_in = true;
-
+                    console.log("success");
                     res.json({
                         success: true,
                         user: userData,
@@ -43,6 +46,8 @@ router.post('/login', async (req, res) => {
         console.log(userData);
 
     } catch (e) {
+        console.log("not success");
+        console.log(e);
         res.status(500).json(e);
     }
 
