@@ -11,8 +11,8 @@ if (window.location.pathname === '/recipes') {
   recipeDescription = document.querySelector('.recipe-description');
   recipeIngredients = document.querySelector('.recipe-ingredients');
   recipeInstructions = document.querySelector('.recipe-instructions');
-  saveRecipeBtn = document.querySelector('.save-recipe');
-  newRecipeBtn = document.querySelector('.new-recipe');
+  saveRecipeBtn = document.querySelector('.save-recipe-btn');
+  newRecipeBtn = document.querySelector('.new-recipe-btn');
   recipeList = document.querySelectorAll('.list-container .list-group');
 }
 
