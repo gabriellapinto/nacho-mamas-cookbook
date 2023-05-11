@@ -91,4 +91,11 @@ router.get('/contact', (req, res) => {
     res.render('contact');
 });
 
+router.get('/signup', (req, res) => {
+    if (req.session.signed_up) {
+        return res.redirect('/login');
+    }
+    res.render('signup');
+});
+
 module.exports = router;
