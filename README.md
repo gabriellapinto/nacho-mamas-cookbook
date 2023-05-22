@@ -14,6 +14,6 @@ Nacho Mama's Cookbook is a user-friendly application that reflects an old fashio
 * Sequelize
 * Hosted by Heroku
 
-![screen1](https://github.com/gabriellapinto/nacho-mamas-cookbook/assets/97854086/ffb7c6fe-0e42-4f53-9954-ebe063b286c4)
-![screen2](https://github.com/gabriellapinto/nacho-mamas-cookbook/assets/97854086/c1fc7199-3b44-45cd-8c78-780b1b5eca2d)
+![screen1](https://github.com/gabriellapinto/nacho-mamas-cookbook/assets/97854086/d9e14287-ab98-458a-b8ad-8958eae7fa1d)
+![screen2](https://github.com/gabriellapinto/nacho-mamas-cookbook/assets/97854086/a5331692-2f90-41a8-b959-a52e8a6e733d)
 
