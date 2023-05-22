@@ -1,19 +1,19 @@
 <body class="h-screen bg-cover bg-no-repeat place-content-center"
-    style="background-image: url('./css/veggies-bg.jpg');">
-    <div class="flex flex-col justify-center items-center h-full">
+    style="background-image: url('./css/images/veggies-bg2.jpg');">
+    <div class="flex flex-col justify-center items-center w-screen h-full p-10">
 
         <!-- Center Button -->
         <div class="w-full rounded mb-20">
-            <h1 class="text-6xl text-center font-bold mb-20 text-orange-500">
+            <h1 class="text-6xl text-center font-bold mb-20 text-orange-500 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                 Welcome to your virtual cookbook!</h1>
             <div class="flex justify-center">
                 {{#if logged_in}}
                 <a href="/recipes"
-                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Go
+                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 drop-shadow-md">Go
                     To My Recipes!</a>
                 {{else}}
                 <a href="/login"
-                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Click
+                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-5 px-10 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 drop-shadow-md">Click
                     here
                     to get started!</a>
                 {{/if}}
@@ -22,7 +22,7 @@
 
         <div class="flex flex-col justify-center items-center w-full h-auto">
             <!-- Container -->
-            <div class="w-1/2 rounded" style="background-color: rgba(49, 49, 49, 0.35);">
+            <div class="w-1/2 rounded p-5" style="background-color: rgba(49, 49, 49, 0.753);">
                 <h2 class="text-center text-xl font-semibold mb-2 text-orange-500">About</h2>
                 <p class="text-center text-orange-500">Welcome to our virtual cookbook website, where you can discover, create, and
                     share

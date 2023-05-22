@@ -1,6 +1,6 @@
 <!-- overall container -->
 <section class="flex container-fluid w-screen h-screen place-content-center p-4 relative overflow-hidden bg-cover bg-no-repeat p-12" 
-style="background-image: url('./css/kitchenbackground.jpg')">
+style="background-image: url('./css/images/veggies-bg2.jpg')">
   <!-- container for login information -->
   <div class="flex bg-orange-300 h-1/4 w-1/4 place-content-around rounded-lg p-4">
     <div class="col-auto">
@@ -9,6 +9,10 @@ style="background-image: url('./css/kitchenbackground.jpg')">
     <div class="justify-center">
       <form id="signup-form">
         <div>
+          <label>Enter your Name:</label>
+          <input type="name" id="signup-name">
+        </div>
+        <div>
           <label>Enter your Email:</label>
           <input type="email" id="signup-email">
         </div>
@@ -16,9 +20,11 @@ style="background-image: url('./css/kitchenbackground.jpg')">
           <label>Enter your Password:</label>
           <input type="password" id="signup-pw">
         </div>
-        <button type="submit" class="hover:bg-orange-700">Sign Up!</button>
+        <button type="submit" id="signup_btn" class="hover:bg-orange-700">Sign Up!</button>
         </div>
       </form>
     </div>
   </div>
 </section>
+
+<script src="/js/signup.js"></script>

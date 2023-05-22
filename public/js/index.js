@@ -7,23 +7,23 @@ let newRecipeBtn;
 let recipeList;
 
 if (window.location.pathname === '/recipes') {
-  recipeName = document.querySelector('.recipe-name');
-  recipeDescription = document.querySelector('.recipe-description');
-  recipeIngredients = document.querySelector('.recipe-ingredients');
-  recipeInstructions = document.querySelector('.recipe-instructions');
-  saveRecipeBtn = document.querySelector('.save-recipe-btn');
-  newRecipeBtn = document.querySelector('.new-recipe-btn');
+  recipeName = document.querySelector('#recipeName');
+  recipeDescription = document.querySelector('#recipeDescription');
+  recipeIngredients = document.querySelector('#recipeIngredients');
+  recipeInstructions = document.querySelector('#recipeInstructions');
+  saveRecipeBtn = document.querySelector('#saveRecipeBtn');
+  newRecipeBtn = document.querySelector('#newRecipeBtn');
   recipeList = document.querySelectorAll('.list-container .list-group');
 }
 
 const show = (elem) => {
-    elem.style.display = 'inline';
-  };
-  
-const hide = (elem) => {
-    elem.style.display = 'none';
+  elem.style.display = 'inline';
 };
-  
+
+const hide = (elem) => {
+  elem.style.display = 'none';
+};
+
 let activeRecipe = {};
 
 // Fetches for back-end
@@ -44,40 +44,45 @@ const saveRecipe = (recipe) =>
     body: JSON.stringify(recipe),
   });
 
-const deleteRecipe = (id) =>
-  fetch(`/api/recipes/${id}`, {
+const deleteRecipe = (id) => {
+  try {
+    fetch(`/api/recipes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
+  } catch (err){console.err(err)};
+};
 
 // Renders Active Recipe
 const renderActiveRecipe = () => {
-    hide(saveRecipeBtn);
-  
-    if (activeRecipe.id) {
-      recipeName.setAttribute('readonly', true);
-      recipeDescription.setAttribute('readonly', true);
-      recipeIngredients.setAttribute('readonly', true);
-      recipeInstructions.setAttribute('readonly', true);
-      recipeName.value = activeRecipe.name;
-      recipeDescription.value = activeRecipe.description;
-      recipeIngredients.value = activeRecipe.ingredients;
-      recipeInstructions.value = activeRecipe.instructions;
-    } else {
-      recipeName.removeAttribute('readonly');
-      recipeDescription.removeAttribute('readonly');
-      recipeIngredients.removeAttribute('readonly');
-      recipeInstructions.removeAttribute('readonly');
-      recipeName.value = '';
-      recipeDescription.value = '';
-      recipeIngredients.value = '';
-      recipeInstructions.value = '';
-    }
+  hide(saveRecipeBtn);
+
+  if (activeRecipe.id) {
+    recipeName.setAttribute('readonly', true);
+    recipeDescription.setAttribute('readonly', true);
+    recipeIngredients.setAttribute('readonly', true);
+    recipeInstructions.setAttribute('readonly', true);
+    recipeName.value = activeRecipe.name;
+    recipeDescription.value = activeRecipe.description;
+    recipeIngredients.value = activeRecipe.ingredients;
+    recipeInstructions.value = activeRecipe.instructions;
+  } else {
+    recipeName.removeAttribute('readonly');
+    recipeDescription.removeAttribute('readonly');
+    recipeIngredients.removeAttribute('readonly');
+    recipeInstructions.removeAttribute('readonly');
+    recipeName.value = '';
+    recipeDescription.value = '';
+    recipeIngredients.value = '';
+    recipeInstructions.value = '';
+  }
 };
-  
+
 const handleRecipeSave = () => {
+  console.log('clicked')
+  if (recipeName && recipeDescription && recipeIngredients && recipeInstructions) {
     const newRecipe = {
       name: recipeName.value,
       description: recipeDescription.value,
@@ -88,55 +93,52 @@ const handleRecipeSave = () => {
       getAndRenderRecipe();
       renderActiveRecipe();
     });
+  };
 };
 
-
 const handleRecipeDelete = (e) => {
-    // Prevents the click listener for the list from being called when the button inside of it is clicked
-    e.stopPropagation();
-  
-    const recipe = e.target;
-    const recipeId = JSON.parse(recipe.parentElement.getAttribute('data-recipe')).id;
-  
-    if (activeRecipe.id === recipeId) {
-      activeRecipe = {};
-    }
-  
-    deleteRecipe(recipeId).then(() => {
-      getAndRenderRecipe();
-      renderActiveRecipe();
-    });
+  // Prevents the click listener for the list from being called when the button inside of it is clicked
+  e.stopPropagation();
+
+  const recipe = e.target;
+  const recipeId = JSON.parse(recipe.parentElement.getAttribute('data-recipe')).id;
+
+  if (activeRecipe.id === recipeId) {
+    activeRecipe = {};
+  }
+
+  deleteRecipe(recipeId)
 };
 
 // Sets the activeRecipe and displays it
 const handleRecipeView = (e) => {
-    e.preventDefault();
-    activeRecipe = JSON.parse(e.target.parentElement.getAttribute('data-recipe'));
-    renderActiveRecipe();
-  };
-  
-  // Sets the activeRecipe to and empty object and allows the user to enter a new recipe
-const handleNewRecipeView = (e) => {
-    activeRecipe = {};
-    renderActiveRecipe();
+  e.preventDefault();
+  activeRecipe = JSON.parse(e.target.parentElement.getAttribute('data-recipe'));
+  renderActiveRecipe();
 };
-  
+
+// Sets the activeRecipe to and empty object and allows the user to enter a new recipe
+const handleNewRecipeView = (e) => {
+  activeRecipe = {};
+  renderActiveRecipe();
+};
+
 const handleRenderSaveBtn = () => {
-    if (!recipeName.value.trim() || !recipeDescription.value.trim() || !recipeIngredients.value.trim() || !recipeInstructions.value.trim()) {
-      hide(saveRecipeBtn);
-    } else {
-      show(saveRecipeBtn);
-    }
+  if (!recipeName.value.trim() || !recipeDescription.value.trim() || !recipeIngredients.value.trim() || !recipeInstructions.value.trim()) {
+    hide(saveRecipeBtn);
+  } else {
+    show(saveRecipeBtn);
+  }
 };
 
 // Render the list of recipe names
 const renderRecipeList = async (recipes) => {
-    let jsonRecipes = await recipes.json();
-    if (window.location.pathname === '/recipes') {
-      recipeList.forEach((el) => (el.innerHTML = ''));
-    }
-  
-    let recipeListItems = [];
+  let jsonRecipes = await recipes.json();
+  if (window.location.pathname === '/recipes') {
+    recipeList.forEach((el) => (el.innerHTML = ''));
+  }
+
+  let recipeListItems = [];
 
   // Returns HTML element with or without a delete button
   const createLi = (text, delBtn = true) => {
@@ -188,11 +190,6 @@ const getAndRenderRecipe = () => getRecipes().then(renderRecipeList);
 if (window.location.pathname === '/recipes') {
   saveRecipeBtn.addEventListener('click', handleRecipeSave);
   newRecipeBtn.addEventListener('click', handleNewRecipeView);
-  recipeName.addEventListener('keyup', handleRenderSaveBtn);
-  recipeDescription.addEventListener('keyup', handleRenderSaveBtn);
-  recipeIngredients.addEventListener('keyup', handleRenderSaveBtn);
-  recipeInstructions.addEventListener('keyup', handleRenderSaveBtn);
 }
 
 getAndRenderRecipe();
-  
